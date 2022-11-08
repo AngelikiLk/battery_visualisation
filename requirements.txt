@@ -38,7 +38,6 @@ docutils
 entrypoints
 et-xmlfile
 fastjsonschema
-flake8
 Flask
 Flask-Compress
 fonttools
@@ -131,7 +130,6 @@ qstylizer
 QtAwesome
 qtconsole
 QtPy
-requests
 rope
 Rtree
 setuptools
@@ -147,8 +145,6 @@ sphinxcontrib-htmlhelp
 sphinxcontrib-jsmath
 sphinxcontrib-qthelp
 sphinxcontrib-serializinghtml
-spyder
-spyder-kernels
 tenacity
 testpath
 text-unidecode
