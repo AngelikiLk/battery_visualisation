@@ -13,18 +13,25 @@ import numpy as np
 from dash.dependencies import Output, Input
 
 
-file = "GSPs_DCs.xlsx"
-df = pd.read_excel(file, sheet_name='GSPs')
-coordinates = pd.read_excel(file, sheet_name='Lat_Lon')
-dict_df = df.set_index('Name').T.to_dict('list')
+# file = "GSPs_DCs.xlsx"
+# df = pd.read_excel(file, sheet_name='GSPs')
+# coordinates = pd.read_excel(file, sheet_name='Lat_Lon')
+# dict_df = df.set_index('Name').T.to_dict('list')
 
-df_fes_orig = pd.read_excel("Data-workbook2022_V004.xlsx", sheet_name='BB1')
-df_fes_orig['GSPs'] = df_fes_orig['GSP'].map(dict_df)
-df_fes_orig = df_fes_orig.applymap(lambda x: x if not isinstance(x, list) else x[0] if len(x) else '')
+# df_fes_orig = pd.read_excel("Data-workbook2022_V004.xlsx", sheet_name='BB1')
+# df_fes_orig['GSPs'] = df_fes_orig['GSP'].map(dict_df)
+# df_fes_orig = df_fes_orig.applymap(lambda x: x if not isinstance(x, list) else x[0] if len(x) else '')
+# df_fes_orig.to_excel('fes_data.xlsx', sheet_name='battery_data')
 
 
 app = dash.Dash(__name__)
 
+fes_file = "fes_data.xlsx"
+df_fes_orig = pd.read_excel(fes_file, sheet_name='battery_data')
+
+GSP_file = "GSPs_DCs.xlsx"
+df = pd.read_excel(GSP_file, sheet_name='GSPs')
+coordinates = pd.read_excel(GSP_file, sheet_name='Lat_Lon')
 
 app.layout=html.Div([
     html.H1("Battery storage deployment in 2050"),
